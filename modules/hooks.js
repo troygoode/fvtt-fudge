@@ -104,7 +104,7 @@ const onSubmit = async (doc) => {
 
   for (let i = 0; i < MAX_ATTEMPTS; i++) {
     const dice = new Roll(formula);
-    const r = dice.roll();
+    const r = await dice.evaluate();
     const total = r.total;
     if (evaluateTotalVsTarget(total, target)) {
       r.toMessage({
